@@ -1,0 +1,14 @@
+version: "3"
+services:
+  smsprometheus:
+    image: proxy-registry.citybank.local/amisoltani/smsprometheus:6
+    restart: always
+    ports:
+      - 8040:8040
+    volumes:
+      - type: bind
+        source: /mnt/data/platform-2/sms/configs/config.yaml
+        target: /config.yaml
+      - type: bind
+        source: /mnt/data/platform-2/sms/logs/logs.txt
+        target: /logs.txt
